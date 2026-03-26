@@ -1,0 +1,45 @@
+# AUTH:DEVNEUROSIM:7A3F9E2B | NeuroSim/.github/workflows/neurosim-ci.yml
+# Starting CI for NeuroSim: build probe + compliance gate (directory structure important).
+
+name: NeuroSim CI
+
+on:
+  push:
+    paths:
+      - "NeuroSim/**"
+      - ".github/workflows/neurosim-ci.yml"
+  pull_request:
+    paths:
+      - "NeuroSim/**"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            9.0.x
+      - name: Build probe (optional)
+        working-directory: NeuroSim
+        continue-on-error: true
+        run: dotnet build --verbosity quiet --nologo || true
+
+  compliance:
+    runs-on: windows-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            9.0.x
+      - name: Compliance (directory/docs + config gate)
+        shell: bash
+        working-directory: NeuroSim
+        run: bash scripts/compliance.sh
+
