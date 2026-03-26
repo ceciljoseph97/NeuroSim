@@ -6,11 +6,23 @@ name: NeuroSim CI
 on:
   push:
     paths:
-      - "NeuroSim/**"
+      - "docs/**"
+      - "scripts/**"
+      - "samples/**"
+      - "NeuroSim.Engine/**"
+      - "NeuroSim.Problems/**"
+      - "NeuroSim.UI/**"
+      - "ConceptDiagram.png"
       - ".github/workflows/neurosim-ci.yml"
   pull_request:
     paths:
-      - "NeuroSim/**"
+      - "docs/**"
+      - "scripts/**"
+      - "samples/**"
+      - "NeuroSim.Engine/**"
+      - "NeuroSim.Problems/**"
+      - "NeuroSim.UI/**"
+      - "ConceptDiagram.png"
   workflow_dispatch:
 
 jobs:
@@ -39,5 +51,5 @@ jobs:
             9.0.x
       - name: Compliance (directory/docs + config gate)
         shell: bash
-        run: bash NeuroSim/scripts/compliance.sh
+        run: bash scripts/compliance.sh
 
