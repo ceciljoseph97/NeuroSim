@@ -1,5 +1,6 @@
 # AUTH:DEVNEUROSIM:7A3F9E2B | samples/poc/regression_linear.py
 """
+POC: Simple linear regression y ~= w * x. Sample Work only , Please update logic, structure implementations as per your observations and requirements.
 POC: GA-based simple linear regression y ~= w * x.
 
 Genome:
@@ -9,7 +10,6 @@ Genome:
 Fitness (maximize):
   - fitness = 1 / (1 + MSE)
 
-Pure-Python, no external deps.
 """
 
 from __future__ import annotations

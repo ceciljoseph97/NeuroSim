@@ -18,6 +18,5 @@ jobs:
             9.0.x
       - name: Compliance (bash)
         shell: bash
-        working-directory: NeuroSim
-        run: bash scripts/compliance.sh
+        run: bash NeuroSim/scripts/compliance.sh
 

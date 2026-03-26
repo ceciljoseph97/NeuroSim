@@ -1,8 +1,7 @@
 # AUTH:DEVNEUROSIM:7A3F9E2B | samples/poc/onemax.py
 """
+POC: GA-based OneMax (binary GA) maximizing the number of ones. Sample Work only , Please update logic, structure implementations as per your observations and requirements.
 POC: OneMax (binary GA) maximizing the number of ones.
-
-Pure-Python, no external deps.
 """
 
 from __future__ import annotations

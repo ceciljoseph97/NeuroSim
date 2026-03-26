@@ -24,7 +24,6 @@ jobs:
             8.0.x
             9.0.x
       - name: Build probe (optional)
-        working-directory: NeuroSim
         continue-on-error: true
         run: dotnet build --verbosity quiet --nologo || true
 
@@ -40,6 +39,5 @@ jobs:
             9.0.x
       - name: Compliance (directory/docs + config gate)
         shell: bash
-        working-directory: NeuroSim
-        run: bash scripts/compliance.sh
+        run: bash NeuroSim/scripts/compliance.sh
 
